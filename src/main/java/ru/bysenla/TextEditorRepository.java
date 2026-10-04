@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface TextEditorRepository extends JpaRepository<TextEntity, Long> {
     @Query("SELECT t from TextEntity t WHERE t.status = TaskStatus.NEW")
-    public List<TextEntity> findNewTasks();
+    public List<TextEntity> findNewTexts();
 }
