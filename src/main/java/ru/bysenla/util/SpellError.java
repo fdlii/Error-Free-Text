@@ -1,4 +1,4 @@
-package ru.bysenla;
+package ru.bysenla.util;
 
 import java.util.List;
 

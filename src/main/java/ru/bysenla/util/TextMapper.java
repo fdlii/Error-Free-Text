@@ -1,6 +1,10 @@
-package ru.bysenla;
+package ru.bysenla.util;
 
 import org.springframework.stereotype.Component;
+import ru.bysenla.entity.TaskStatus;
+import ru.bysenla.entity.TextEntity;
+import ru.bysenla.dto.TextRequestDTO;
+import ru.bysenla.dto.TextResponseDTO;
 
 @Component
 public class TextMapper {
@@ -15,7 +19,8 @@ public class TextMapper {
     public TextResponseDTO toDTO(TextEntity entity) {
         TextResponseDTO responseDTO = new TextResponseDTO();
         responseDTO.setStatus(entity.getStatus());
-        if (entity.getStatus() == TaskStatus.COMPLETED) {
+        responseDTO.setErrorMessage(entity.getErrorMessage());
+        if (entity.getStatus() == TaskStatus.COMPLETED || entity.getStatus() == TaskStatus.FAILED) {
             responseDTO.setText(entity.getText());
         }
         else {

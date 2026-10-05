@@ -1,4 +1,4 @@
-package ru.bysenla;
+package ru.bysenla.entity;
 
 import jakarta.persistence.*;
 
@@ -19,6 +19,9 @@ public class TextEntity {
     @Column(name = "language")
     private String language;
 
+    @Column(name = "error_message")
+    private String errorMessage;
+
     public TextEntity(){}
 
     public long getId() {
@@ -37,6 +40,10 @@ public class TextEntity {
         return language;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -51,5 +58,9 @@ public class TextEntity {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }

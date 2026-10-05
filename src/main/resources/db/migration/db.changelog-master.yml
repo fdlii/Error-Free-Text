@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/migration/changeset/001-init-schema.yaml
+  - include:
+      file: db/migration/changeset/002-add-error-description.yaml

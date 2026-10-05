@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: add error message
+      author: Nikita Gusev
+      changes:
+        - addColumn:
+            tableName: texts
+            columns:
+              - column:
+                  name: error_message
+                  type: text
