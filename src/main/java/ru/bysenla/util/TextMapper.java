@@ -19,12 +19,11 @@ public class TextMapper {
     public TextResponseDTO toDTO(TextEntity entity) {
         TextResponseDTO responseDTO = new TextResponseDTO();
         responseDTO.setStatus(entity.getStatus());
-        responseDTO.setErrorMessage(entity.getErrorMessage());
-        if (entity.getStatus() == TaskStatus.COMPLETED || entity.getStatus() == TaskStatus.FAILED) {
-            responseDTO.setText(entity.getText());
+        if (entity.getStatus() == TaskStatus.COMPLETED) {
+            responseDTO.setCorrectedText(entity.getText());
         }
-        else {
-            responseDTO.setText("");
+        else if (entity.getStatus() == TaskStatus.FAILED) {
+            responseDTO.setErrorMessage(entity.getErrorMessage());
         }
         return responseDTO;
     }

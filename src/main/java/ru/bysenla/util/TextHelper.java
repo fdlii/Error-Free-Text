@@ -53,12 +53,15 @@ public class TextHelper {
         for (int i = 0; i < fragments.length; i++) {
             int currentPos = 0;
             for (SpellError spellError : errors.get(i)) {
+                if (spellError.s() == null || spellError.s().isEmpty()) {
+                    continue;
+                }
                 if (spellError.pos() < currentPos) {
                     continue;
                 }
                 result.append(fragments[i], currentPos, spellError.pos());
                 result.append(spellError.s().get(0));
-                currentPos = spellError.pos() + spellError.word().length();
+                currentPos = spellError.pos() + spellError.len();
             }
             result.append(fragments[i], currentPos, fragments[i].length());
         }

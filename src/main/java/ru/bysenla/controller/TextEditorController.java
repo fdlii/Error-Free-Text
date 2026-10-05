@@ -3,6 +3,7 @@ package ru.bysenla.controller;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.bysenla.entity.TextEntity;
@@ -29,7 +30,7 @@ public class TextEditorController {
         log.debug("Saving new text.");
         TextEntity entity = service.saveText(mapper.toEntity(textDTO));
         log.debug("Text was successfully saved.");
-        return ResponseEntity.ok(entity.getId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(entity.getId());
     }
 
     @GetMapping("/{id}")

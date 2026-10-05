@@ -9,3 +9,10 @@ spring:
       ddl-auto: none
   liquibase:
     change-log: db/migration/db.changelog-master.yml
+  http:
+    client:
+      connect-timeout: 3s
+      read-timeout: 10s
+
+speller:
+  base-url: https://speller.yandex.net/services/spellservice.json

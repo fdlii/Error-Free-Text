@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: change language type
+      author: Nikita Gusev
+      changes:
+        - modifyDataType:
+            tableName: texts
+            columnName: language
+            newDataType: varchar(8)
+      rollback:
+        - modifyDataType:
+            tableName: texts
+            columnName: language
+            newDataType: varchar(3)

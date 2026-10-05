@@ -1,32 +1,34 @@
 package ru.bysenla.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import ru.bysenla.entity.TaskStatus;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TextResponseDTO {
-    private String text;
     private TaskStatus status;
+    private String correctedText;
     private String errorMessage;
 
-    public TextResponseDTO(){}
-
-    public String getText() {
-        return text;
-    }
+    public TextResponseDTO() {}
 
     public TaskStatus getStatus() {
         return status;
+    }
+
+    public String getCorrectedText() {
+        return correctedText;
     }
 
     public String getErrorMessage() {
         return errorMessage;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
     public void setStatus(TaskStatus status) {
         this.status = status;
+    }
+
+    public void setCorrectedText(String correctedText) {
+        this.correctedText = correctedText;
     }
 
     public void setErrorMessage(String errorMessage) {
